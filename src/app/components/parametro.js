@@ -11,7 +11,7 @@ export default function Index() {
 export function Texto1() {
     return (
         <div>
-            <h2>Texto 1</h2>
+            <h2></h2>
         </div>
     )
 }

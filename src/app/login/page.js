@@ -3,24 +3,28 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie'; // Codigo para instalar a biblioteca:   npm i js-cookie
+import Footer from '../components/footer';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 export default function Login() {
   const router = useRouter();
-  const token = "{'login':'marcio.cezar'}";
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const hadleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      Cookies.set('authToken', token, {
-        expires: 7,
-        secure: true,
-        sameSite: 'strict'
-      });
+    const formData = new FormData(e.target);
+    const username = formData.get('loginuser');
+    const password = formData.get('password');
 
-      console.log(token);
-      router.push('/default');
-    } catch (error) {
-      console.log(error);
+    if (username === 'admin' && password === 'admin123') {
+      setError("");
+      setIsLoading(true);
+      setTimeout(() => {
+        router.push('/default');
+      }, 800);
+    } else {
+      setError('Credenciais inválidas. Tente novamente.');
     }
   };
 
@@ -73,6 +77,8 @@ export default function Login() {
           </div>
         </form>
       </div>
+      <Footer />
+      {isLoading && <LoadingSpinner />}
     </div>
   );
 }
