@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔐 Sistema de Autenticação com Next.js
 
-## Getting Started
+Projeto desenvolvido com foco em autenticação, troca de tema claro/escuro, gerenciamento de estado com Context API, navegação protegida e animação de carregamento entre páginas.
 
-First, run the development server:
+---
+
+## 🚀 Funcionalidades Implementadas
+
+- ✅ Sistema de login com validação de credenciais
+- ✅ Persistência de autenticação via cookies (`js-cookie`)
+- ✅ Opção "Lembrar-me" para manter login
+- ✅ Tema claro/escuro com Tailwind CSS e Context API
+- ✅ Componente `<ThemeToggleButton />` para alternar tema
+- ✅ Componentes reutilizáveis: `Header`, `Footer`, `LoadingSpinner`, `ThemeToggleButton`
+- ✅ Exibição de `<LoadingSpinner />` entre troca de rotas
+- ✅ Página principal com conteúdo dividido em seções
+- ✅ Navegação protegida após login
+- ✅ Estilização moderna e responsiva com Tailwind CSS
+
+---
+
+## 🧪 Tecnologias Utilizadas
+
+- [Next.js 13+ App Router](https://nextjs.org/)
+- [React 18](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [js-cookie](https://www.npmjs.com/package/js-cookie) para persistência do login
+
+---
+
+## 💻 Como Executar Localmente
+
+1. **Clone o repositório:**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/seu-usuario/seu-repo.git
+cd seu-repo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Instale as dependências:**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. **Execute o projeto:**
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Acesse no navegador:**
+```bash
+http://localhost:3000
+```
 
-## Learn More
+**Credenciais de Teste:**
 
-To learn more about Next.js, take a look at the following resources:
+Usuário: admin
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Senha: admin123
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Estrutura do Diretórios:**
 
-## Deploy on Vercel
+src/
+├── app/
+│   ├── login/
+│   │   └── page.js       # Página de login
+│   ├── default/
+│   │   └── page.js       # Página protegida após login
+│   └── layout.js         # Aplica tema e loading entre páginas
+│
+├── components/
+│   ├── Header.js
+│   ├── Footer.js
+│   ├── LoadingSpinner.js
+│   ├── ThemeToggleButton.js
+│   └── RouteLoader.js
+│
+├── context/
+│   └── ThemeContext.js
+│
+├── styles/
+│   └── globals.css       
+│
+├── utils/
+│   └── auth.js     
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+**Dependências:**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+"dependencies": {
+  "next": "^13 || ^14",
+  "react": "^18",
+  "js-cookie": "^3.0.5",
+  "tailwindcss": "^3.3"
+}
+
