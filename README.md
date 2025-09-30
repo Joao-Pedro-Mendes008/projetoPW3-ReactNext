@@ -62,26 +62,47 @@ Senha: admin123
 
 src/
 ├── app/
+
 │   ├── login/
+
 │   │   └── page.js       # Página de login
+
 │   ├── default/
+
 │   │   └── page.js       # Página protegida após login
+
 │   └── layout.js         # Aplica tema e loading entre páginas
+
 │
+
 ├── components/
+
 │   ├── Header.js
+
 │   ├── Footer.js
+
 │   ├── LoadingSpinner.js
+
 │   ├── ThemeToggleButton.js
+
 │   └── RouteLoader.js
+
 │
+
 ├── context/
+
 │   └── ThemeContext.js
+
 │
+
 ├── styles/
-│   └── globals.css       
+
+│   └── globals.css   
+
 │
+
 ├── utils/
+
 │   └── auth.js     
 
 **Dependências:**
