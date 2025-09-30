@@ -52,13 +52,13 @@ npm run dev
 http://localhost:3000
 ```
 
-**Credenciais de Teste:**
+## **Credenciais de Teste:**
 
 Usuário: admin
 
 Senha: admin123
 
-**Estrutura do Diretórios:**
+## **Estrutura do Diretórios:**
 
 src/
 ├── app/
@@ -105,7 +105,7 @@ src/
 
 │   └── auth.js     
 
-**Dependências:**
+## **Dependências:**
 
 "dependencies": {
   "next": "^13 || ^14",
