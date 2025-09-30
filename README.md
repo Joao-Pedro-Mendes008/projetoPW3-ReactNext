@@ -114,3 +114,8 @@ src/
   "tailwindcss": "^3.3"
 }
 
+## Decisões Técnicas
+
+- Utilizamos Context API para gerenciar tema e autenticação
+- Implementamos validação simples no front-end (idealmente seria no back-end)
+- Adotamos Tailwind CSS para estilização consistente
