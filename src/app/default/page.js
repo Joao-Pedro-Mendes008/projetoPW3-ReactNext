@@ -1,52 +1,59 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
-import Cookies from 'js-cookie';
-import { ThemeProvider } from '../context/ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 
-import Principal from '../components/principal';
-import Parametro, { Texto1, Texto2, Texto3 } from '../components/parametro';
-import Footer from '../components/footer';
-import Header from '../components/header';
-import LoadingSpinner from '../components/LoadingSpinner';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import LoadingSpinner from '../../components/LoadingSpinner';
+import ThemeToggleButton from '../../components/ThemeToogleButton';
 
-export default function Default() {
-    const router = useRouter();
-    const [isLoading, setLoading] = useState(false);
+export default function DefaultPage() {
+  const { isDark } = useTheme();
 
-    const handleLogout = () => {
-        setLoading(true);
-        Cookies.remove('authToken');
-        setTimeout(() => {
-            router.push('/login');
-        }, 600);
-    };
+  return (
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900'}`}>
+      <Header />
 
-    return (
-        <div>
-            <Header />
-            <ThemeProvider />
-            <Principal />
-            <Parametro />
-            <Texto1 />
-            <Texto2 />
-            <Texto1 />
-            <Texto2 />
-            <Texto3 cor="red" tipo="bold">
-                .... Texto texto 3 ....
-            </Texto3>
+      <main className="w-full max-w-4xl mx-auto px-6 py-10 space-y-10">
 
-            <button
-                onClick={handleLogout}
-                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 
-          focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
-          transition-colors"
-            >
-                Sair ...
-            </button>
-            <Footer />
-            {isLoading && <LoadingSpinner />}
-        </div>
-    );
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold">Fortnite</h2>
+          <img
+            src="https://t.ctcdn.com.br/WD904b00rO6NykNqDpvrR8ewIJU=/768x432/smart/i341793.jpeg"
+            alt="Fortnite"
+            className="w-full max-h-[400px] object-cover rounded-lg shadow-md"
+          />
+          <p className="text-gray-700 dark:text-gray-600 leading-relaxed">
+            Fortnite capítulo 1.
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold">Mesa de Ping</h2>
+          <img
+            src="https://a-static.mlcdn.com.br/1500x1500/mesa-de-ping-pong-15mm-olimpic-oficial/magazineluiza/202645500/e1636e729ab047df257703c98106cd20.jpg"
+            alt="Mesa de ping pong"
+            className="w-full max-h-[400px] object-cover rounded-lg shadow-md"
+          />
+          <p className="text-gray-700 dark:text-gray-600 leading-relaxed">
+            Mesa muito incrível de ping pong, você nunca viu uma igual.
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h2 className="text-2xl font-semibold">Mesa de Pong</h2>
+          <img
+            src="https://a-static.mlcdn.com.br/1500x1500/mesa-de-ping-pong-15mm-olimpic-oficial/magazineluiza/202645500/e1636e729ab047df257703c98106cd20.jpg"
+            alt="Mesa de ping pong"
+            className="w-full max-h-[400px] object-cover rounded-lg shadow-md"
+          />
+          <p className="text-gray-700 dark:text-gray-600 leading-relaxed">
+            Mesa muito incrível de ping pong, você nunca viu uma igual.
+          </p>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
 }
