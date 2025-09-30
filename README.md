@@ -59,6 +59,7 @@ Usuário: admin
 Senha: admin123
 
 **Estrutura do Diretórios:**
+
 src/
 ├── app/
 │   ├── login/
@@ -84,6 +85,7 @@ src/
 │   └── auth.js     
 
 **Dependências:**
+
 "dependencies": {
   "next": "^13 || ^14",
   "react": "^18",
